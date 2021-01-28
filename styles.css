@@ -167,15 +167,11 @@ width: 100px;
   height: 325px;
   top: 112px;
   left: 282px;
-  background-image: url("./images/bg-4.png");
+  background-image: url("./images/arena-forrest.png");
 	background-size: contain;
 	overflow: hidden;
 }
 
-.screen.arena-street {
-  background-image: url("./images/as.png");
-
-}
 
 
 /* MENU */
