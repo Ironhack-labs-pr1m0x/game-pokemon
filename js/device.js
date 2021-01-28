@@ -15,7 +15,7 @@ const gameBoyAdvance = `
       <div class="container small-device">
         <div class="start-btn-overlay"></div>
         <div class="pointer-arrow">
-          <img src="./images/pointer_arrow.png" alt="">
+          <img src="./images/arrow.png" alt="">
         </div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 551.1 317" enable-background="new 0 0 551.1 317" xml:space="preserve">

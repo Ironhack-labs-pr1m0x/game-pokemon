@@ -7,6 +7,7 @@ class Pokemon {
     pokemon.healthPercent = (pokemon.health / pokemon.maxHealth) * 80;
     game.opponentStats.drawOpponentStats(game.opponentPokemon);
     game.playerStats.drawPlayerStats(game.playerPokemon);
+    // document.querySelector('.player--pokemon-health-bar').style.width = `${game.playerPokemon.healthPercent}px`;
   }
 
   async restoreHealth(pokemon, bag) {
@@ -21,6 +22,10 @@ class Pokemon {
 
       pokemon.health = pokemon.health + potion.energy;
       if (pokemon.health >= pokemon.maxHealth) pokemon.health = pokemon.maxHealth;
+
+      const healSound = new Audio('../sounds/heal.wav');
+      healSound.volume = 0.2;
+      healSound.play();
 
       pokemon.healthPercent = (pokemon.health / pokemon.maxHealth) * 80;
       game.opponentStats.drawOpponentStats();
@@ -57,7 +62,7 @@ class Pokemon {
 class Charmander extends Pokemon {
   constructor() {
     super();
-    this.name = 'Charmandery';
+    this.name = 'Charmander';
     this.attacks = [
       { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
       { name: 'Ember', func: 'attack', damage: 30, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },

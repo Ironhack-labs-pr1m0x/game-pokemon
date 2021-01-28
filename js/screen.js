@@ -6,8 +6,22 @@ class Screen {
 
   drawBlackScreen() {
     this.screenTarget.innerHTML = blackScreen;
-    // const audio = new Audio('./sounds/ember.wav');
-    // audio.play();
+  }
+
+  drawFadeOutScreen() {
+    this.screenTarget.insertAdjacentHTML('afterbegin', drawFadeOutScreen);
+
+    setTimeout(() => {
+      document.querySelector('.overlay-fade-out').remove();
+    }, 500);
+  }
+
+  drawFadeInScreen() {
+    this.screenTarget.insertAdjacentHTML('afterbegin', drawFadeInScreen);
+
+    setTimeout(() => {
+      document.querySelector('.overlay-fade-in').remove();
+    }, 1500);
   }
 
   drawIntroScreen() {
@@ -63,9 +77,7 @@ class Screen {
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-forrest.png")';
         } else if (difficulty === 'middle') {
-          game.opponentPokemonArr = [new Alakazam(), new Alakazam(), new Alakazam()];
-
-          // game.opponentPokemonArr = [new Gengar(), new Aerodactyl(), new Alakazam()];
+          game.opponentPokemonArr = [new Gengar(), new Aerodactyl(), new Alakazam()];
           game.opponentTrainer = 'Garry';
           game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
@@ -84,6 +96,8 @@ class Screen {
 
   drawBattleScreen() {
     this.screenTarget.innerHTML = screen;
+    this.drawFadeOutScreen();
+
     game.sound.pause();
     game.battleSound.volume = 0.03;
     game.battleSound.play();
@@ -118,6 +132,13 @@ class Screen {
     this.screenTarget.innerHTML = lostScreen;
   }
 }
+const drawFadeInScreen = `
+    <div class="overlay-fade-in">
+    </div>`;
+
+const drawFadeOutScreen = `
+    <div class="overlay-fade-out">
+    </div>`;
 
 const blackScreen = `
   <div class="black--screen">
@@ -330,6 +351,7 @@ const introScreen = `
 
 const screen = `
           <div class="player--stats-box">
+
           </div>
           <div class="opponent--stats-box">
           </div>

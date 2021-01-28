@@ -13,7 +13,14 @@ class MenuEvents {
           } else if (ev.target.closest('div').classList.contains('btn--bag')) {
             game.menu.drawBagMenu(game.playerPokemon);
           } else if (ev.target.closest('div').classList.contains('btn--run')) {
-            game.drawWelcomeScreen();
+            game.screen.drawFadeInScreen();
+            const runawaySound = new Audio('../sounds/runaway.mp3');
+            runawaySound.volume = 0.2;
+            game.battleSound.pause();
+            runawaySound.play();
+            setTimeout(() => {
+              game.drawWelcomeScreen();
+            }, 1500);
           }
         });
       });

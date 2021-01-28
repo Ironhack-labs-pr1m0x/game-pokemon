@@ -11,6 +11,7 @@ document.querySelector('.start-btn-overlay').addEventListener('click', (ev) => {
   game.drawIntroScreen();
   document.querySelector('.start-btn-overlay').remove();
   document.querySelector('.container').classList.add('big-device');
+  document.querySelector('.power-btn').style.fill = '#26c426';
 
   setTimeout(() => {
     game.drawWelcomeScreen();

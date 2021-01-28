@@ -57,18 +57,20 @@ body {
 	animation: bounceArrow 1s; 
 	animation-direction: alternate; 
 	animation-iteration-count: infinite; 
-	left: 0px;
-	top: 328px;
+	left: 15px;
+  top: 356px;
 }
+
+.pointer-arrow img {
+	width: 75px;
+	}
+	
 
 @keyframes bounceArrow { 
 	from { transform: translate3d(0, 0, 0);} 
 	to { transform: translate3d( 25px,0, 0);} 
 } 
 
-.pointer-arrow img {
-width: 100px;
-}
 
 .small-device {
 	transform: scale(0.5);
@@ -81,6 +83,85 @@ width: 100px;
 
 
 /* Transition Screen */
+
+.overlay-fade-out {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+.overlay-fade-out:after {
+	content:'';
+    position:absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius:50%;
+    width: 0px;
+    height: 0px;
+    border: 1000px solid black;
+    animation-duration: 0.5s;
+    animation-name: circle-out;
+		animation-timing-function: linear;
+		opacity: 0;
+}
+
+@keyframes circle-out {
+  0% {
+		width:0px;
+		height:0px;
+		opacity: 1;
+  }
+	75% {
+		opacity: 0.7;
+	}
+100% {
+		width: 450px;
+    height: 450px;
+		opacity: 0.1;
+}
+}
+
+
+.overlay-fade-in {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	overflow:hidden;
+}
+
+
+.overlay-fade-in:after {
+	content:'';
+	position:absolute;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	border-radius:50%;
+	width:0px;
+	height:0px;
+	border: 1000px solid black;
+	animation-duration: 0.5s;
+	animation-name: circleiIn;
+	animation-timing-function: linear;
+	opacity: 1;
+}
+
+@keyframes circleiIn {
+  0% {
+    width: 350px;
+    height: 350px;
+		opacity: 0.7;
+  }
+
+100% {
+		width:0px;
+		height:0px;
+		opacity: 1;
+}
+}
 
 .black--screen {
 	width: 100%; 
@@ -381,13 +462,14 @@ z-index: 10;
 
 .player--pokemon-health-bar {
 	position: absolute;
-	height: 6px;
+	height: 5px;
 	width: 80px;
 	left: 111px;
 	top: 21px;
 	z-index: 10;
-	background: rgb(42,106,37);
-	background: linear-gradient(180deg, rgba(42,106,37,1) 0%, rgba(37,183,40,1) 39%);
+	background-color: #25b527;
+	/* background: rgb(42,106,37);
+	background: linear-gradient(180deg, rgba(42,106,37,1) 0%, rgba(37,183,40,1) 39%); */
 	transition: all 0.4s linear;  
 }
 
@@ -465,7 +547,7 @@ z-index: 10;
 		z-index: 10;
 		background: rgb(42,106,37);
 		background: linear-gradient(180deg, rgba(42,106,37,1) 0%, rgba(37,183,40,1) 39%);
-		transition: all;
+		transition: all 0.4s linear;  
 	}
 	
 	.opponent--pokemon-max-health {

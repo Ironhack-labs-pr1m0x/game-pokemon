@@ -1,15 +1,3 @@
-// const attackLoop = async (ev) => {
-//   await playerAttacks(ev);
-//   // STOP ATTACKING WHEN OPPONENT POKEMON IS DEAD
-//   if (game.opponentPokemon.health !== 0) {
-//     await opponentAttacks();
-//   }
-
-//   setTimeout(() => {
-//     game.menu.drawDefaultMenu(game.playerPokemon);
-//   }, 1500);
-// };
-
 const playerAttacks = async (ev) => {
   return new Promise(async (resolve, reject) => {
     let attack = { ...game.playerPokemon.attacks[ev.target.getAttribute('data-attack-id')] };
@@ -42,6 +30,8 @@ const playerAttacks = async (ev) => {
       game.opponentPokemonArr.shift();
 
       if (game.opponentPokemonArr.length === 0) return game.screen.drawWonScreen();
+      document.querySelector('.screen').insertAdjacentHTML('afterbegin', "<div class='overlay-fade-in'></div>");
+
       game.opponentPokemon = game.opponentPokemonArr[0];
       game.drawNextTrainerScreen();
       return;
