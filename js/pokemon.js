@@ -64,7 +64,7 @@ class Charmander extends Pokemon {
     super();
     this.name = 'Charmander';
     this.attacks = [
-      { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
+      { name: 'Tackle', func: 'attack', damage: 300, type: 'Normal', crit: 2 },
       { name: 'Ember', func: 'attack', damage: 30, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },
       { name: 'Scratch', func: 'attack', damage: 40, type: 'Normal', crit: 5, image: 'slash.gif' },
       { name: 'Back', func: 'button', type: 'Button' },

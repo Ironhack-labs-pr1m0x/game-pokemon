@@ -119,6 +119,15 @@ class Screen {
     });
   }
 
+  drawMasterWonScreen() {
+    this.screenTarget.innerHTML = masterWonScreen;
+    const audio = new Audio('./sounds/win.mp3');
+    audio.volume = 0.2;
+    game.sound = audio;
+    game.battleSound.pause();
+    game.sound.play();
+  }
+
   drawWonScreen() {
     this.screenTarget.innerHTML = wonScreen;
     const audio = new Audio('./sounds/win.mp3');
@@ -220,6 +229,12 @@ const wonScreen = `
     <h3>Congrats, you won!!!</h3>
     <img style="width:300px;" src="./images/pokemons.gif">
     <p>You're a super Pokémon Trainer</p>
+</div>
+`;
+
+const masterWonScreen = `
+<div class="welcome--box">
+    <img style="width:100%; height: auto;" src="./images/drake.gif">
 </div>
 `;
 
