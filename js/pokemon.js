@@ -57,7 +57,7 @@ class Pokemon {
 class Charmander extends Pokemon {
   constructor() {
     super();
-    this.name = 'Charmanderz';
+    this.name = 'Charmandery';
     this.attacks = [
       { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
       { name: 'Ember', func: 'attack', damage: 30, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },
