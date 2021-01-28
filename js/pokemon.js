@@ -23,7 +23,7 @@ class Pokemon {
       pokemon.health = pokemon.health + potion.energy;
       if (pokemon.health >= pokemon.maxHealth) pokemon.health = pokemon.maxHealth;
 
-      const healSound = new Audio('../sounds/heal.wav');
+      const healSound = new Audio('./sounds/heal.wav');
       healSound.volume = 0.2;
       healSound.play();
 
