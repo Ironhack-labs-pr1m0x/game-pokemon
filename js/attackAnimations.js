@@ -1,5 +1,5 @@
 const opponentAttackAnimation = (attack) => {
-  const emberSound = new Audio('./sounds/Ember.wav');
+  const emberSound = new Audio('./sounds/ember.wav');
   const opponentAnimatedSound = new Audio('./sounds/opponent-1.wav');
   opponentAnimatedSound.volume = game.audioLevel;
   emberSound.volume = game.audioLevel;
@@ -42,7 +42,7 @@ const opponentAttackAnimation = (attack) => {
 };
 
 const playerAttackAnimation = (attack) => {
-  const emberSound = new Audio('./sounds/Ember.wav');
+  const emberSound = new Audio('./sounds/ember.wav');
   emberSound.volume = game.audioLevel;
   const fireSound = new Audio('./sounds/fire.wav');
   fireSound.volume = game.audioLevel;
