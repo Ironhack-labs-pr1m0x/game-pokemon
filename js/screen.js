@@ -76,7 +76,7 @@ class Screen {
           game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-forrest.png")';
-        } else if (difficulty === 'middle') {
+        } else if (difficulty === 'medium') {
           game.opponentPokemonArr = [new Gengar(), new Aerodactyl(), new Alakazam()];
           game.opponentTrainer = 'Garry';
           game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
@@ -210,7 +210,7 @@ const chooseDifficultyScreen = `
         <img style="width:100px;" src="./images/trainer_2.gif">
         <p>Mr. X</p>
       </div>
-      <div class="trainer-wrapper" data-difficulty="middle">
+      <div class="trainer-wrapper" data-difficulty="medium">
         <p>Middle</p>
         <img style="width:100px; margin-left: -20px" src="./images/garry.webp">
         <p>Garry</p>
