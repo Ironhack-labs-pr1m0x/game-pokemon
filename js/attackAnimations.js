@@ -1,4 +1,9 @@
 const opponentAttackAnimation = (attack) => {
+  const emberSound = new Audio('./sounds/Ember.wav');
+  const opponentAnimatedSound = new Audio('./sounds/opponent-1.wav');
+  opponentAnimatedSound.volume = game.audioLevel;
+  emberSound.volume = game.audioLevel;
+
   return new Promise((resolve, reject) => {
     const opponentPokemon = document.querySelector('.opponentPokemon');
     const playerPokemon = document.querySelector('.playerPokemon');
@@ -8,9 +13,7 @@ const opponentAttackAnimation = (attack) => {
       playerPokemon.classList.add('damage');
 
       setTimeout(() => {
-        const sound = new Audio('./sounds/Ember.wav');
-        sound.volume = game.audioLevel;
-        sound.play();
+        emberSound.play();
       }, 200);
 
       setTimeout(() => {
@@ -23,11 +26,9 @@ const opponentAttackAnimation = (attack) => {
     if (attack.type === 'Animated') {
       playerPokemon.classList.add('opponent--attack-animated');
       playerPokemon.classList.add('damage');
-      const sound = new Audio('./sounds/opponent-1.wav');
 
       setTimeout(() => {
-        sound.volume = game.audioLevel;
-        sound.play();
+        opponentAnimatedSound.play();
       }, 200);
 
       setTimeout(() => {
@@ -41,6 +42,15 @@ const opponentAttackAnimation = (attack) => {
 };
 
 const playerAttackAnimation = (attack) => {
+  const emberSound = new Audio('./sounds/Ember.wav');
+  emberSound.volume = game.audioLevel;
+  const fireSound = new Audio('./sounds/fire.wav');
+  fireSound.volume = game.audioLevel;
+  const grassSound = new Audio('./sounds/grass.wav');
+  grassSound.volume = game.audioLevel;
+  const waterSound = new Audio('./sounds/water.wav');
+  waterSound.volume = game.audioLevel;
+
   return new Promise((reslove, reject) => {
     const opponentPokemon = document.querySelector('.opponentPokemon');
     const playerPokemon = document.querySelector('.playerPokemon');
@@ -50,9 +60,7 @@ const playerAttackAnimation = (attack) => {
         opponentPokemon.classList.add('damage');
         opponentPokemon.classList.add('slash');
         setTimeout(() => {
-          const audio = new Audio('./sounds/Ember.wav');
-          audio.volume = game.audioLevel;
-          audio.play();
+          emberSound.play();
         }, 200);
 
         setTimeout(() => {
@@ -67,9 +75,7 @@ const playerAttackAnimation = (attack) => {
       opponentPokemon.classList.add('damage');
 
       setTimeout(() => {
-        const audio = new Audio('/sounds/Ember.wav');
-        audio.volume = game.audioLevel;
-        audio.play();
+        emberSound.play();
       }, 200);
 
       setTimeout(() => {
@@ -83,9 +89,7 @@ const playerAttackAnimation = (attack) => {
       opponentPokemon.classList.add('burns');
 
       setTimeout(() => {
-        const audio = new Audio('./sounds/fire.wav');
-        audio.volume = game.audioLevel;
-        audio.play();
+        fireSound.play();
       }, 200);
 
       setTimeout(() => {
@@ -96,9 +100,7 @@ const playerAttackAnimation = (attack) => {
 
     if (attack.type === 'Grass') {
       opponentPokemon.classList.add('grass');
-      const sound = new Audio('./sounds/grass.wav');
-      sound.volume = game.audioLevel;
-      sound.play();
+      grassSound.play();
       setTimeout(() => {
         opponentPokemon.classList.remove('grass');
         reslove(true);
@@ -107,9 +109,7 @@ const playerAttackAnimation = (attack) => {
 
     if (attack.type === 'Water') {
       opponentPokemon.classList.add('water');
-      const sound = new Audio('./sounds/water.wav');
-      sound.volume = game.audioLevel;
-      sound.play();
+      waterSound.play();
       setTimeout(() => {
         opponentPokemon.classList.remove('water');
         reslove(true);
