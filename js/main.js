@@ -1,7 +1,6 @@
 const game = new Game();
 
 // • Render • //
-
 game.drawBlackScreen();
 
 document.querySelector('.start-btn-overlay').addEventListener('click', (ev) => {
@@ -17,19 +16,3 @@ document.querySelector('.start-btn-overlay').addEventListener('click', (ev) => {
     game.drawWelcomeScreen();
   }, 2500);
 });
-
-// game.drawIntroScreen();
-
-// setTimeout(() => {
-//   game.drawWelcomeScreen();
-// }, 2500);
-
-// setTimeout(() => {
-//   game.screen.drawChoosePokemonScreen();
-// }, 4500);
-
-// game.screen.drawChooseDifficultyScreen();
-
-// game.screen.drawChoosePokemonScreen();
-// game.screen.drawNextTrainerScreen();
-// // game.screen.drawChoosePokemonScreen();
