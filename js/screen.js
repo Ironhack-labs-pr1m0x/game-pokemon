@@ -33,6 +33,7 @@ class Screen {
   }
 
   drawWelcomeScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = welcomeScreen;
     const audio = new Audio('./sounds/opening.mp3');
     audio.volume = 0.1;
@@ -49,6 +50,7 @@ class Screen {
   }
 
   drawChoosePokemonScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = choosePokemonScreen;
     document.querySelectorAll('.pokeball-wrapper').forEach((el) => {
       el.addEventListener('click', (ev) => {
@@ -66,6 +68,7 @@ class Screen {
   }
 
   drawChooseDifficultyScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = chooseDifficultyScreen;
     document.querySelectorAll('.trainer-wrapper').forEach((el) => {
       el.addEventListener('click', (ev) => {
@@ -117,6 +120,7 @@ class Screen {
   }
 
   drawNextTrainerScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = nextTrainerScreen
       .replace('#{opponentTrainer}', game.opponentTrainer)
       .replace('#{pokemon}', game.opponentPokemon.name);
@@ -133,6 +137,7 @@ class Screen {
   }
 
   drawMasterWonScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = masterWonScreen;
     const audio = new Audio('./sounds/win.mp3');
     audio.volume = 0.2;
@@ -142,6 +147,7 @@ class Screen {
   }
 
   drawWonScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = wonScreen;
     const audio = new Audio('./sounds/win.mp3');
     audio.volume = 0.2;
@@ -151,6 +157,7 @@ class Screen {
   }
 
   drawLostScreen() {
+    game.lowHpSound.pause();
     this.screenTarget.innerHTML = lostScreen;
   }
 }
