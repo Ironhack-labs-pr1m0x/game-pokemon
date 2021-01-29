@@ -2,15 +2,12 @@
 # Pokémon Battle Simulator
 Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Click START to begin the game.
 ## Features
-* **Intelligent Opponent:** Opponent uses Potions
-* **Multiple Arenas:** Fight in 3 Arenas
+* **Level Recognition:**  Algorithm calculates attack damage based on level of the Pokeḿon
+* **Critical Damage:** Each attack has its own equitiy to hit a critical (some are lower, some are higher)
+* **Type Recognition:** Choose the right attack to make additional damage
 * **Animated Attacks:** Use animated special attacks
-* **Damage Algorithm:** Algorithm calculates attack damage based on level of the Pokeḿon
-* **Critical Damage:** Both Pokémon have a chance of hitting a cricital hit
-* **Type Recognizing:** The right type correlation makes additional damage
-* **Strategy:** Each Trainer has a weakness
-
-
+* **Multiple Arenas:** Fight in 3 Arenas
+* **Luck:** Just if you have the right strategy and be lucky you are able to win
 ## Difficulties
 * **Easy:** Opponent has 2 Potions, and 3 Pokémon between level 10 and 15
 * **Medium:** Opponent has 3 Potions, and 4 Pokémon between level 15 and 20
@@ -21,6 +18,6 @@ Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Clic
 * **Fire > Grass:** Fight Pokémons type: grass with fire
 * **Grass > Water** Fight Pokémons type: water with grass
 
-## Beat the Game (change the code)
+## (Bonus) Be a Webdev-Master: Win last Arena by changing the source code and get special Winning Screen
 * To proof that you mastered the Poké-Trainer path and be ready to follow your path as Webdev show your skills and change the code
 * Change the Pokémon (either yours or the opponent Pokémon) to be able to win the last Arena
