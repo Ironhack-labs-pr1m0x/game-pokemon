@@ -14,7 +14,7 @@ Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Clic
 * **Medium:** Opponent has 3 Potions, and 4 Pokémon between level 15 and 20
 * **Hard:** Opponent has 4 Potions, and 5 Pokémon between level 20 and 40
 
-## Strenght and Wheaknesses
+## Strenght and Weaknesses
 * **Water > Rock:** Fight Pokémons type: rock with water
 * **Fire > Grass:** Fight Pokémons type: grass with fire
 * **Grass > Water** Fight Pokémons type: water with grass
