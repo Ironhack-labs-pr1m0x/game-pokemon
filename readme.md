@@ -1,7 +1,6 @@
 
 # Pokeḿon Battle
-Find the Game [here](https://ironhack-labs-pr1m0x.github.io/pokemon-game/). Click START to begin the game:
-
+Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Click START to begin the game.
 ## Features
 * **Intelligent Opponent:** Opponent uses Potions
 * **Multiple Arenas:** Fight in 3 Arenas
