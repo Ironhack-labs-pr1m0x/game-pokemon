@@ -11,8 +11,8 @@ Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Clic
 * **Luck:** Just if you have the right strategy and be lucky you are able to win
 ## Difficulties
 * **Easy:** Opponent has 2 Potions, and 3 Pokémon between level 10 and 15
-* **Medium:** Opponent has 3 Potions, and 4 Pokémon between level 15 and 20
-* **Hard:** Opponent has 4 Potions, and 5 Pokémon between level 20 and 40
+* **Medium:** Opponent has 3 Potions, and 3 Pokémon between level 15 and 20
+* **Hard:** Opponent has 4 Potions, and 3 Pokémon between level 20 and 40
 
 ## Strenght and Weaknesses
 * **Water > Rock:** Fight Pokémons type: rock with water
