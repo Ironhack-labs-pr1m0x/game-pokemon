@@ -31,7 +31,7 @@ const playerAttacks = async (ev) => {
       );
     } else {
       await game.menu.drawCommentMenu(
-        `${game.playerPokemon.name} use ${attack.name} and makes CRICITCAL damage of ${attack.damage} hp!`,
+        `${game.playerPokemon.name} use ${attack.name} and makes CRITICAL damage of ${attack.damage} hp!`,
         3000
       );
     }
@@ -89,7 +89,7 @@ const opponentAttacks = async () => {
     );
   } else {
     await game.menu.drawCommentMenu(
-      `${game.opponentPokemon.name} use ${attack.name} and makes CRICITCAL damage of ${attack.damage} hp!`,
+      `${game.opponentPokemon.name} use ${attack.name} and makes CRITICAL damage of ${attack.damage} hp!`,
       3000
     );
   }

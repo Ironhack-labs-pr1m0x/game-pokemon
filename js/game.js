@@ -8,6 +8,7 @@ class Game {
     this.sound;
     this.audioLevel = 0.2;
     this.battleSound = new Audio('./sounds/battle_trainer.mp3');
+    this.lowHpSound = new Audio('./sounds/lowhp.wav');
   }
 
   drawBlackScreen() {
@@ -23,7 +24,7 @@ class Game {
   }
 
   drawBattleScreen() {
-    this.opponentTrainer;
+    this.opponentTrainer = 'Mr. X';
     this.screen.drawBattleScreen();
     this.menu = new Menu();
     this.playerPokemon.drawPokemon();

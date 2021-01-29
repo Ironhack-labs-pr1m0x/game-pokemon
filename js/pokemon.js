@@ -9,7 +9,6 @@ class Pokemon {
     pokemon.healthPercent = (pokemon.health / pokemon.maxHealth) * 80;
     game.opponentStats.drawOpponentStats(game.opponentPokemon);
     game.playerStats.drawPlayerStats(game.playerPokemon);
-    // document.querySelector('.player--pokemon-health-bar').style.width = `${game.playerPokemon.healthPercent}px`;
   }
 
   async restoreHealth(pokemon, bag) {
@@ -66,7 +65,7 @@ class Charmander extends Pokemon {
     super(trainer);
     this.name = 'Charmander';
     this.attacks = [
-      { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
+      { name: 'Tackle', func: 'attack', damage: 0, type: 'Normal', crit: 2 },
       { name: 'Ember', func: 'attack', damage: 40, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },
       { name: 'Scratch', func: 'attack', damage: 30, type: 'Normal', crit: 5, image: 'slash.gif' },
       { name: 'Back', func: 'button', type: 'Button' },
@@ -108,6 +107,7 @@ class Squirtle extends Pokemon {
 class Bulbasaur extends Pokemon {
   constructor(trainer) {
     super(trainer);
+
     this.name = 'Bulbasaur';
     this.attacks = [
       { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },

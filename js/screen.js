@@ -71,12 +71,12 @@ class Screen {
       el.addEventListener('click', (ev) => {
         const difficulty = ev.target.closest('div').getAttribute('data-difficulty');
         if (difficulty === 'easy') {
+          game.opponentTrainer = 'Mr. X';
           game.opponentPokemonArr = [
             new Rattata(game.opponentTrainer),
             new Geodude(game.opponentTrainer),
             new Jigglypuff(game.opponentTrainer),
           ];
-          game.opponentTrainer = 'Mr. X';
           game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-forrest.png")';
@@ -91,12 +91,13 @@ class Screen {
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-street.png")';
         } else {
+          game.opponentTrainer = 'Bonnie';
+
           game.opponentPokemonArr = [
             new Venusaur(game.opponentTrainer),
             new Mewto(game.opponentTrainer),
             new Glitch(game.opponentTrainer),
           ];
-          game.opponentTrainer = 'Bonnie';
           game.playerBag = [{ name: 'Potion', quantity: 5, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-final.png")';

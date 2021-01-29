@@ -6,6 +6,9 @@ class PlayerStats {
   }
 
   drawPlayerStats() {
+    game.lowHpSound.pause();
+    game.lowHpSound.volume = 0.05;
+
     document.querySelector('.player--pokemon-name').innerHTML = game.playerPokemon.name;
     document.querySelector('.player--pokemon-health').innerHTML = game.playerPokemon.health;
     document.querySelector('.player--pokemon-level').innerHTML = game.playerPokemon.level;
@@ -20,6 +23,8 @@ class PlayerStats {
     } else if (game.playerPokemon.healthPercent > 25) {
       healthBar.style.background = `#dad30c`;
     } else {
+      game.lowHpSound.loop = true;
+      game.lowHpSound.play();
       healthBar.style.background = `#e03c3c`;
     }
   }
