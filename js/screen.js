@@ -120,7 +120,6 @@ class Screen {
   }
 
   drawNextTrainerScreen() {
-    game.lowHpSound.pause();
     this.screenTarget.innerHTML = nextTrainerScreen
       .replace('#{opponentTrainer}', game.opponentTrainer)
       .replace('#{pokemon}', game.opponentPokemon.name);
