@@ -3,7 +3,7 @@
 Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Click START to begin the game.
 ## Features
 * **Level Recognition:** Algorithm calculates attack damage based on level of the Pokeḿon
-* **Itelligent Opponent:** Opponent is uses potion wiseley
+* **Intelligent Opponent:** Opponent is uses potion wiseley
 * **Critical Damage:** Each attack has its own equitiy to hit a critical (some are lower & some are higher)
 * **Type Recognition:** Choose the right attack to make additional damage
 * **Animated Attacks:** Use animated special attacks
