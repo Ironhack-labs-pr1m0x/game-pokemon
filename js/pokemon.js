@@ -1,5 +1,7 @@
 class Pokemon {
-  constructor() {}
+  constructor(trainer) {
+    this.trainer = trainer;
+  }
 
   receiveDamage(pokemon, attack) {
     pokemon.health = pokemon.health - attack.damage;
@@ -19,18 +21,18 @@ class Pokemon {
       }
 
       potion.quantity--;
-
       pokemon.health = pokemon.health + potion.energy;
       if (pokemon.health >= pokemon.maxHealth) pokemon.health = pokemon.maxHealth;
 
       const healSound = new Audio('./sounds/heal.wav');
       healSound.volume = 0.2;
       healSound.play();
-
       pokemon.healthPercent = (pokemon.health / pokemon.maxHealth) * 80;
       game.opponentStats.drawOpponentStats();
       game.playerStats.drawPlayerStats();
-      await game.menu.drawCommentMenu(`${pokemon.name} heals ${potion.energy} with a Potion`);
+      await game.menu.drawCommentMenu(
+        `${pokemon.trainer} uses potion and heals ${potion.energy} hp of ${pokemon.name}`
+      );
       resolve(true);
     });
   }
@@ -60,16 +62,16 @@ class Pokemon {
 }
 
 class Charmander extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Charmander';
     this.attacks = [
-      { name: 'Tackle', func: 'attack', damage: 300, type: 'Normal', crit: 2 },
-      { name: 'Ember', func: 'attack', damage: 30, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },
-      { name: 'Scratch', func: 'attack', damage: 40, type: 'Normal', crit: 5, image: 'slash.gif' },
+      { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
+      { name: 'Ember', func: 'attack', damage: 40, type: 'Fire', crit: 2, image: 'ember.gif', sound: 'ember.wav' },
+      { name: 'Scratch', func: 'attack', damage: 30, type: 'Normal', crit: 5, image: 'slash.gif' },
       { name: 'Back', func: 'button', type: 'Button' },
     ];
-    this.type = 'fire';
+    this.type = 'Fire';
     this.health = 120;
     this.maxHealth = 120;
     this.healthPercent = (this.health / this.maxHealth) * 80;
@@ -82,8 +84,8 @@ class Charmander extends Pokemon {
 }
 
 class Squirtle extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Squirtle';
     this.attacks = [
       { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
@@ -91,7 +93,7 @@ class Squirtle extends Pokemon {
       { name: 'Waterball', func: 'attack', damage: 40, type: 'Water', crit: 3, image: 'water.gif' },
       { name: 'Back', func: 'button', type: 'Button' },
     ];
-    this.type = 'fire';
+    this.type = 'Water';
     this.health = 120;
     this.maxHealth = 120;
     this.healthPercent = (this.health / this.maxHealth) * 80;
@@ -104,16 +106,16 @@ class Squirtle extends Pokemon {
 }
 
 class Bulbasaur extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Bulbasaur';
     this.attacks = [
       { name: 'Tackle', func: 'attack', damage: 30, type: 'Normal', crit: 2 },
-      { name: 'Scratch', func: 'attack', damage: 30, type: 'Normal', crit: 3, image: 'slash.gif' },
+      { name: 'Scratch', func: 'attack', damage: 40, type: 'Normal', crit: 3, image: 'slash.gif' },
       { name: 'Seed Bomb', func: 'attack', damage: 40, type: 'Grass', crit: 4, image: 'leaf_attack.gif' },
       { name: 'Back', func: 'button', type: 'Button' },
     ];
-    this.type = 'fire';
+    this.type = 'Grass';
     this.health = 120;
     this.maxHealth = 120;
     this.healthPercent = (this.health / this.maxHealth) * 80;
@@ -126,8 +128,8 @@ class Bulbasaur extends Pokemon {
 }
 
 class Jigglypuff extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Jigglypuff';
     this.attacks = [
       { name: 'Tackle', damage: 20, type: 'Normal' },
@@ -135,11 +137,11 @@ class Jigglypuff extends Pokemon {
       { name: 'Pound', damage: 40, type: 'Normal' },
       { name: 'Slam', damage: 50, type: 'Normal' },
     ];
-    this.type = 'Psy';
+    this.type = 'Normal';
     this.health = 100;
     this.maxHealth = 100;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 10;
+    this.level = 11;
     this.width = 60;
     this.x = 295;
     this.y = 130;
@@ -148,8 +150,8 @@ class Jigglypuff extends Pokemon {
 }
 
 class Rattata extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Rattata';
     this.attacks = [
       { name: 'Tackle', damage: 10, type: 'Normal' },
@@ -157,7 +159,7 @@ class Rattata extends Pokemon {
       { name: 'Bite', damage: 30, type: 'Normal' },
       { name: 'Crunch', damage: 40, type: 'Normal' },
     ];
-    this.type = 'Psy';
+    this.type = 'Normal';
     this.health = 100;
     this.maxHealth = 100;
     this.healthPercent = (this.health / this.maxHealth) * 80;
@@ -171,8 +173,8 @@ class Rattata extends Pokemon {
 }
 
 class Geodude extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Geodude';
     this.attacks = [
       { name: 'Sand', damage: 10, type: 'Normal' },
@@ -180,11 +182,11 @@ class Geodude extends Pokemon {
       { name: 'Tackle', damage: 30, type: 'Normal' },
       { name: 'Explosion', damage: 40, type: 'Normal' },
     ];
-    this.type = 'Psy';
+    this.type = 'Rock';
     this.health = 100;
     this.maxHealth = 100;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 10;
+    this.level = 12;
     this.width = 100;
     this.x = 270;
     this.y = 128;
@@ -193,8 +195,8 @@ class Geodude extends Pokemon {
 }
 
 class Alakazam extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Alakazam';
     this.attacks = [
       { name: 'Kinesis', damage: 10, type: 'Normal', crit: 3 },
@@ -206,7 +208,7 @@ class Alakazam extends Pokemon {
     this.health = 200;
     this.maxHealth = 200;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 25;
+    this.level = 20;
     this.width = 100;
     this.x = 280;
     this.y = 168;
@@ -215,8 +217,8 @@ class Alakazam extends Pokemon {
 }
 
 class Gengar extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Gengar';
     this.attacks = [
       { name: 'Curse', damage: 10, type: 'Normal', crit: 3 },
@@ -228,7 +230,7 @@ class Gengar extends Pokemon {
     this.health = 200;
     this.maxHealth = 200;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 25;
+    this.level = 15;
     this.width = 100;
     this.x = 284;
     this.y = 161;
@@ -237,8 +239,8 @@ class Gengar extends Pokemon {
 }
 
 class Aerodactyl extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Aerodactyl';
     this.attacks = [
       { name: 'Bite', damage: 10, type: 'Normal', crit: 3 },
@@ -246,11 +248,11 @@ class Aerodactyl extends Pokemon {
       { name: 'Crunch', damage: 30, type: 'Normal', crit: 3 },
       { name: 'Psybeam', damage: 40, type: 'Animated', crit: 3 },
     ];
-    this.type = 'Psy';
+    this.type = 'Normal';
     this.health = 200;
     this.maxHealth = 200;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 25;
+    this.level = 20;
     this.width = 200;
     this.x = 220;
     this.y = 215;
@@ -258,9 +260,54 @@ class Aerodactyl extends Pokemon {
   }
 }
 
+class Gyarados extends Pokemon {
+  constructor(trainer) {
+    super(trainer);
+    this.name = 'Gyarados';
+    this.attacks = [
+      { name: 'Bite', damage: 10, type: 'Normal', crit: 3 },
+      { name: 'Slash', damage: 20, type: 'Normal', crit: 3 },
+      { name: 'Crunch', damage: 30, type: 'Normal', crit: 3 },
+      { name: 'Aqua Tail', damage: 40, type: 'Animated', crit: 3 },
+    ];
+    this.type = 'Water';
+    this.health = 200;
+    this.maxHealth = 200;
+    this.healthPercent = (this.health / this.maxHealth) * 80;
+    this.level = 21;
+    this.width = 200;
+    this.x = 220;
+    this.y = 215;
+    this.img = 'gyarados.gif';
+  }
+}
+
+class Poliwrath extends Pokemon {
+  constructor(trainer) {
+    super(trainer);
+    this.name = 'Poliwrath';
+    this.attacks = [
+      { name: 'Bite', damage: 10, type: 'Normal', crit: 3 },
+      { name: 'Slash', damage: 20, type: 'Normal', crit: 3 },
+      { name: 'Crunch', damage: 30, type: 'Normal', crit: 3 },
+      { name: 'Aqua Tail', damage: 40, type: 'Animated', crit: 3 },
+    ];
+    this.type = 'Water';
+    this.health = 200;
+    this.maxHealth = 200;
+    this.healthPercent = (this.health / this.maxHealth) * 80;
+    this.level = 21;
+    this.width = 125;
+    this.x = 253;
+    this.y = 181;
+
+    this.img = 'poliwrath.gif';
+  }
+}
+
 class Blastoise extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Blastoise';
     this.attacks = [
       { name: 'Tail', damage: 10, type: 'Normal', crit: 3 },
@@ -281,9 +328,32 @@ class Blastoise extends Pokemon {
   }
 }
 
+class Venusaur extends Pokemon {
+  constructor(trainer) {
+    super(trainer);
+    this.name = 'Venusaur';
+    this.attacks = [
+      { name: 'Tail', damage: 10, type: 'Normal', crit: 3 },
+      { name: 'Headnut', damage: 20, type: 'Normal', crit: 3 },
+      { name: 'Bite', damage: 30, type: 'Normal', crit: 3 },
+      { name: 'Solar', damage: 40, type: 'Animated', crit: 3 },
+    ];
+    this.type = 'Grass';
+    this.health = 200;
+    this.maxHealth = 200;
+    this.healthPercent = (this.health / this.maxHealth) * 80;
+    this.level = 30;
+    this.width = 120;
+    this.x = 265;
+    this.y = 178;
+
+    this.img = 'venusaur.gif';
+  }
+}
+
 class Mewto extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Mewto';
     this.attacks = [
       { name: 'Tackle', damage: 10, type: 'Normal', crit: 3 },
@@ -295,7 +365,7 @@ class Mewto extends Pokemon {
     this.health = 250;
     this.maxHealth = 250;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 35;
+    this.level = 33;
     this.width = 125;
     this.x = 295;
     this.y = 177;
@@ -304,8 +374,8 @@ class Mewto extends Pokemon {
 }
 
 class Glitch extends Pokemon {
-  constructor() {
-    super();
+  constructor(trainer) {
+    super(trainer);
     this.name = 'Glitch';
     this.attacks = [
       { name: 'Tackle', damage: 10, type: 'Normal', crit: 2 },
@@ -317,7 +387,7 @@ class Glitch extends Pokemon {
     this.health = 120;
     this.maxHealth = 120;
     this.healthPercent = (this.health / this.maxHealth) * 80;
-    this.level = 15;
+    this.level = 40;
     this.width = 100;
     this.x = 265;
     this.y = 208;

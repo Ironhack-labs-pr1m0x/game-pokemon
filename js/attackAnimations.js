@@ -34,7 +34,7 @@ const opponentAttackAnimation = (attack) => {
       setTimeout(() => {
         playerPokemon.classList.remove('opponent--attack-animated');
         playerPokemon.classList.remove('damage');
-        sound.pause();
+        opponentAnimatedSound.pause();
         resolve(true);
       }, 2000);
     }

@@ -12,16 +12,26 @@ const playerAttacks = async (ev) => {
       }
     }
 
+    if (
+      (attack.type === 'Fire' && game.opponentPokemon.type === 'Grass') ||
+      (attack.type === 'Water' && game.opponentPokemon.type === 'Rock') ||
+      (attack.type === 'Grass' && game.opponentPokemon.type === 'Water')
+    ) {
+      crit = true;
+      attack.damage = attack.damage * 1.5;
+      console.log(attack.damage);
+    }
+
     playerAttackAnimation(attack);
     game.opponentPokemon.receiveDamage(game.opponentPokemon, attack);
 
     if (!crit) {
       await game.menu.drawCommentMenu(
-        `${game.playerPokemon.name} attacks ${game.opponentPokemon.name} with ${attack.name} and makes ${attack.damage} damage.`
+        `${game.playerPokemon.name} use ${attack.name} and makes damage of ${attack.damage} hp!`
       );
     } else {
       await game.menu.drawCommentMenu(
-        `${game.playerPokemon.name} attacks ${game.opponentPokemon.name} CRITICAL with ${attack.name} and makes ${attack.damage} damage.`,
+        `${game.playerPokemon.name} use ${attack.name} and makes CRICITCAL damage of ${attack.damage} hp!`,
         3000
       );
     }
@@ -75,11 +85,11 @@ const opponentAttacks = async () => {
 
   if (!crit) {
     await game.menu.drawCommentMenu(
-      `${game.opponentPokemon.name} attacks ${game.playerPokemon.name} with ${attack.name} and makes ${attack.damage} damage.`
+      `${game.opponentPokemon.name} use ${attack.name} and makes damage of ${attack.damage} hp!`
     );
   } else {
     await game.menu.drawCommentMenu(
-      `${game.opponentPokemon.name} attacks ${game.playerPokemon.name} CRITICAL with ${attack.name} and makes ${attack.damage} damage.`,
+      `${game.opponentPokemon.name} use ${attack.name} and makes CRICITCAL damage of ${attack.damage} hp!`,
       3000
     );
   }

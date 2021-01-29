@@ -23,12 +23,13 @@ class Game {
   }
 
   drawBattleScreen() {
+    this.opponentTrainer;
     this.screen.drawBattleScreen();
     this.menu = new Menu();
     this.playerPokemon.drawPokemon();
     this.opponentPokemon = this.opponentPokemonArr[0];
     this.opponentPokemon.drawOpponentPokemon();
-    this.opponentTrainer;
+
     this.menu.drawDefaultMenu(this.playerPokemon);
     this.playerStats = new PlayerStats();
     this.opponentStats = new OpponentStats();

@@ -54,11 +54,11 @@ class Screen {
       el.addEventListener('click', (ev) => {
         const pickedPokemon = ev.target.closest('div').getAttribute('data-pokemon');
         if (pickedPokemon === 'charmander') {
-          game.playerPokemon = new Charmander();
+          game.playerPokemon = new Charmander('Ash');
         } else if (pickedPokemon === 'squirtle') {
-          game.playerPokemon = new Squirtle();
+          game.playerPokemon = new Squirtle('Ash');
         } else {
-          game.playerPokemon = new Bulbasaur();
+          game.playerPokemon = new Bulbasaur('Ash');
         }
         game.drawChooseDifficultyScreen();
       });
@@ -71,21 +71,33 @@ class Screen {
       el.addEventListener('click', (ev) => {
         const difficulty = ev.target.closest('div').getAttribute('data-difficulty');
         if (difficulty === 'easy') {
-          game.opponentPokemonArr = [new Rattata(), new Geodude(), new Jigglypuff()];
+          game.opponentPokemonArr = [
+            new Rattata(game.opponentTrainer),
+            new Geodude(game.opponentTrainer),
+            new Jigglypuff(game.opponentTrainer),
+          ];
           game.opponentTrainer = 'Mr. X';
           game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-forrest.png")';
         } else if (difficulty === 'medium') {
-          game.opponentPokemonArr = [new Gengar(), new Aerodactyl(), new Alakazam()];
           game.opponentTrainer = 'Garry';
-          game.playerBag = [{ name: 'Potion', quantity: 3, energy: 50, info: 'Heals 50 hp' }];
+          game.opponentPokemonArr = [
+            new Poliwrath(game.opponentTrainer),
+            new Gengar(game.opponentTrainer),
+            new Gyarados(game.opponentTrainer),
+          ];
+          game.playerBag = [{ name: 'Potion', quantity: 4, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-street.png")';
         } else {
-          game.opponentPokemonArr = [new Blastoise(), new Mewto(), new Glitch()];
+          game.opponentPokemonArr = [
+            new Venusaur(game.opponentTrainer),
+            new Mewto(game.opponentTrainer),
+            new Glitch(game.opponentTrainer),
+          ];
           game.opponentTrainer = 'Bonnie';
-          game.playerBag = [{ name: 'Potion', quantity: 2, energy: 50, info: 'Heals 50 hp' }];
+          game.playerBag = [{ name: 'Potion', quantity: 5, energy: 50, info: 'Heals 50 hp' }];
           game.opponentBag = [{ name: 'Potion', quantity: 3, energy: 50 }];
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-final.png")';
         }
@@ -175,7 +187,7 @@ const lostScreen = `
 const welcomeScreen = `
   <div class="welcome--box pointer">
       <h3>Welcome to Pokémon</h3>
-      <p>Click with your mouse to continue</p>
+      <p>Click your mouse to continue</p>
   </div>
 `;
 
