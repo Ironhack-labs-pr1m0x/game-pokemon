@@ -1,5 +1,5 @@
 
-# Pokeḿon Battle
+# Pokémon Battle Simulator
 Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Click START to begin the game.
 ## Features
 * **Intelligent Opponent:** Opponent uses Potions
@@ -7,13 +7,14 @@ Find the Game [here](https://ironhack-labs-pr1m0x.github.io/game-pokemon/). Clic
 * **Animated Attacks:** Use animated special attacks
 * **Damage Algorithm:** Algorithm calculates attack damage based on level of the Pokeḿon
 * **Critical Damage:** Both Pokémon have a chance of hitting a cricital hit
-* **Strategy:** Each Trainer has weakness. Find it
-* **Recognizes type of Pokémon and Attack:** Attacks make additional damage
+* **Type Recognizing:** The right type correlation makes additional damage
+* **Strategy:** Each Trainer has a weakness
+
 
 ## Difficulties
 * **Easy:** Opponent has 2 Potions, and 3 Pokémon between level 10 and 15
-* **Medium:** Opponent has 3 Potions, and 3 Pokémon between level 15 and 20
-* **Hard:** Opponent has 4 Potions, and 3 Pokémon between level 20 and 40
+* **Medium:** Opponent has 3 Potions, and 4 Pokémon between level 15 and 20
+* **Hard:** Opponent has 4 Potions, and 5 Pokémon between level 20 and 40
 
 ## Strenght and Wheaknesses
 * **Water > Rock:** Fight Pokémons type: rock with water
