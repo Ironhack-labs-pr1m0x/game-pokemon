@@ -98,7 +98,7 @@ class Screen {
 
           game.opponentPokemonArr = [
             new Venusaur(game.opponentTrainer),
-            new Mewto(game.opponentTrainer),
+            new Mewtu(game.opponentTrainer),
             new Glitch(game.opponentTrainer),
           ];
           game.playerBag = [{ name: 'Potion', quantity: 5, energy: 50, info: 'Heals 50 hp' }];

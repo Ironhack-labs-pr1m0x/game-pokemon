@@ -351,10 +351,10 @@ class Venusaur extends Pokemon {
   }
 }
 
-class Mewto extends Pokemon {
+class Mewtu extends Pokemon {
   constructor(trainer) {
     super(trainer);
-    this.name = 'Mewto';
+    this.name = 'Mewtu';
     this.attacks = [
       { name: 'Tackle', damage: 10, type: 'Normal', crit: 3 },
       { name: 'Disable', damage: 20, type: 'Normal', crit: 3 },
@@ -369,7 +369,7 @@ class Mewto extends Pokemon {
     this.width = 125;
     this.x = 295;
     this.y = 177;
-    this.img = 'mewto_front.gif';
+    this.img = 'mewtu_front.gif';
   }
 }
 
