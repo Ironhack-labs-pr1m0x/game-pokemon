@@ -39,8 +39,9 @@ const playerAttacks = async (ev) => {
     if (game.opponentPokemon.health <= 0) {
       game.opponentPokemonArr.shift();
 
-      if (game.opponentPokemonArr.length === 0 && game.opponentTrainer === 'Bonnie')
+      if (game.opponentPokemonArr.length === 0 && game.opponentPokemon.trainer === 'Bonnie') {
         return game.screen.drawMasterWonScreen();
+      }
 
       if (game.opponentPokemonArr.length === 0) return game.screen.drawWonScreen();
       document.querySelector('.screen').insertAdjacentHTML('afterbegin', "<div class='overlay-fade-in'></div>");

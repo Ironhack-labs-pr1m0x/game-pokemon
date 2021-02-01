@@ -95,6 +95,7 @@ class Screen {
           document.querySelector('.screen').style.backgroundImage = 'url("./images/arena-street.png")';
         } else {
           game.opponentTrainer = 'Bonnie';
+          console.log(game.opponentTrainer);
 
           game.opponentPokemonArr = [
             new Venusaur(game.opponentTrainer),
@@ -121,7 +122,7 @@ class Screen {
 
   drawNextTrainerScreen() {
     this.screenTarget.innerHTML = nextTrainerScreen
-      .replace('#{opponentTrainer}', game.opponentTrainer)
+      .replace('#{opponentTrainer}', game.opponentPokemon.trainer)
       .replace('#{pokemon}', game.opponentPokemon.name);
 
     document.querySelectorAll('.deciscion--btn').forEach((el) => {
